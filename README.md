@@ -110,5 +110,15 @@ instalações após projeto pronto
 npm install --save @nestjs/typeorm typeorm 
 
 DRIVERS CONECCAO
+
 mysql2
+
 mssql e tedious
+
+# Testando a conecção com o banco
+
+conforme o site do nestjs (https://docs.nestjs.com/techniques/database)
+
+# Use o gerador de modelos de Entitade do typeorm *typeorm-model-generator
+
+instale global e siga as instrações para geração (https://www.npmjs.com/package/typeorm-model-generator)
