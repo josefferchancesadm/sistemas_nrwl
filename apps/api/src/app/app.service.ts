@@ -4,6 +4,6 @@ import { Message } from '@sistemas/api-interfaces';
 @Injectable()
 export class AppService {
   getData(): Message {
-    return { message: 'Welcome to api!' };
+    return { message: 'bem vindo a api!' };
   }
 }
