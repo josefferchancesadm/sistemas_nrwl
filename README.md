@@ -256,3 +256,28 @@ entities:[], como mostra o exemplo anterior.
  - Preencha os campos de acordo área do projeto. [name](*The name of the controller): ex. nome-entidade, [module](Allows specification of the declaring module): ex. financeiro, [path](The path to create the controller): ex. src/lib, [sourceRoot](Nest controller source root directory): ex. libs/financeiro/controllers, e desmarque spec p não gerar arquivos .spec e execute (RUN).
  - exemplo de arquivo criado. libs/financeiro/controllers/src/lib/nome-entidade/nome-entidade.controller.ts.
 
+ # ESTRUTURANDO ARRAY DE ENTIDADES NO TYPEORMMODULE FORROOT (APPS)
+
+ - NOTA: Em vez de importar todas as entidades para parte de entities:[] do TypeOrmModule.forRoot. da aplicação (apps/api/src/app/app.module.ts), deixando muito grande de acordo com aplicação cresce, podemos enxugar o app.module.ts. Siga os passos a seguir.
+  - 1. Crie um arquivo entities.ts na raiz ex. libs/acessos/entities/src, e importe as entidades conforme abaixo:
+   - import { Users } from './lib/Users.entity';
+   - import { Roles } from './lib/Roles.entity';
+   - import { UserRoles } from './lib/UserRoles.entity';
+
+   - export const ACESSOS_ENTITIES = [
+    - Users,
+    - Roles,
+    - UserRoles
+   - ]
+
+  - 2. Com arquivo criado, abra o arquivo libs/acessos/entities/src/index.ts e exporte o arquivo anterior, colocando em primeiro da lista:
+   
+   - export * from './entities';
+   - export * from './lib/acessos-entities';
+   - export * from './lib/Users.entity';
+   - export * from './lib/Roles.entity';
+   - export * from './lib/UserRoles.entity';
+
+  - 3. Abra o arquivo apps/api/src/app/app.module.ts, e importe import { ACESSOS_ENTITIES } from '@sistemas/acessos-entities'; e implemente a tag entities:[ ...ACESSOS_ENTITIES ], na configuração do forRoot. 
+   -NOTA: ...ACESSOS_ENTITIES indica que se trata de um array de entidades;
+
