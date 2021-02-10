@@ -159,7 +159,7 @@ entities:[], como mostra o exemplo anterior.
 
 # CRIANDO A LIBRARY ENTITIES E INTERFACES
 
-- 1. Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
+- 1 Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
  - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @nrwl/node:library
  - Preencha os campos de acordo área do projeto. [Library name](nome da library): ex. entities, [directory](diretorio raiz dentro de libs): ex financeiro, [importPath](@myorg/my-awesome-lib: Nome usado pela library p/ importar nos projetos): ex. @sistemas/financeiro-entities.
  - exemplo dos arquivos gerados e atualizados após clicar no botão (RUN).
@@ -180,9 +180,9 @@ entities:[], como mostra o exemplo anterior.
 
  - NOTA: Use o mesmo procedimento para criar a interfaces. [Library name](nome da library): ex. interfaces, [directory](diretorio raiz dentro de libs): ex financeiro, [importPath](@myorg/my-awesome-lib: Nome usado pela library p/ importar nos projetos): ex. @sistemas/financeiro-interfaces. Após criados ambos, eles estaram mapeados nos arquivos tsconfig.base.json, angular.json, nx.json e package.json.
 
-- 2. Copie o arquivo das entidades geradas  pelo *typeorm-model-generator em output/entities para a pasta criada anteriormente. ex. libs/financeiro/entities/src/lib/ onde se encontraram as entidades relacionadas ao local de criação. Próximo passo e atualizar o arquivo libs/financeiro/entities/src/index.ts para exportar a entidade criada ex. (export * from './lib/nome-entidade.entity';).
+- 2 Copie o arquivo das entidades geradas  pelo *typeorm-model-generator em output/entities para a pasta criada anteriormente. ex. libs/financeiro/entities/src/lib/ onde se encontraram as entidades relacionadas ao local de criação. Próximo passo e atualizar o arquivo libs/financeiro/entities/src/index.ts para exportar a entidade criada ex. (export * from './lib/nome-entidade.entity';).
 
-- 3. Após criado a entidade, copie a entidade para a pasta das interfaces ex. libs/financeiro/interfaces/src/lib/ e renomeio para nome.interfaces.ts. e modelo o arquivo como mostra abaixo;
+- 3 Após criado a entidade, copie a entidade para a pasta das interfaces ex. libs/financeiro/interfaces/src/lib/ e renomeio para nome.interfaces.ts. e modelo o arquivo como mostra abaixo;
 
 ## exemplo de modelo de interfaces.
   import { LocalDateTime } from '@js-joda/core'; (@js-joda, lib usada para manipular data/hora timezone, instale pelo npm i --save js-joda)
@@ -213,19 +213,19 @@ entities:[], como mostra o exemplo anterior.
       this.updatedAt = params?.updatedAt ?? LocalDateTime.now();
     }
   }
-## lembre-se do ? para as propriedades não obrigatórias.
+# lembre-se do ? para as propriedades não obrigatórias.
 - NOTA: atualize o arquivo libs/financeiro/interfaces/src/index.ts para exportar a interface criada. ex.export * from './lib/Users.interface';. Próximo passo e atualizar a entitdade para implementar da interface. ex. 
 
 - import type { IUsers } from '@sistemas/acessos-interfaces';
 - @Entity("users", { schema: "dbo" })
 - export class Users implements IUsers {
 
-- 4. Importe a entidade para apps/api/src/app/app.module.ts, para parte de entities:[] do TypeOrmModule.forRoot.
+- 4 Importe a entidade para apps/api/src/app/app.module.ts, para parte de entities:[] do TypeOrmModule.forRoot.
 
 
 # CRIANDO A LIBRARY DO MODULO DO CONTROLLERS
 
-- 1. Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
+- 1 Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
  - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @nrwl/nest:library
  - Preencha os campos de acordo área do projeto. [name](*Library name): ex. controllers, [directory](A directory where the app is placed): ex. financeiro, [importPath](The library name used to import it, like @myorg/my-awesome-lib.): @sistemas/financeiro-controllers. Confira o caminho se está correto e execute o (RUN).
  - NOTA: este diretório contem o arquivo de module.ts. exemplo:
@@ -246,12 +246,12 @@ entities:[], como mostra o exemplo anterior.
 
 # CRIANDO SERVIÇOS E CONTROLLER DA ENTIDADE DENTRO (MODULO DO CONTROLLERS ANTERIORMENTE)
 
-- 1. (Service) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas.
+- 1 (Service) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas.
  - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @nestjs/schematics:service
  - Preencha os campos de acordo área do projeto. [name](*The name of the service): ex. nome-entidade, [path](The path to create the service): ex. src/lib, [sourceRoot](Nest service source root directory): ex. libs/financeiro/controllers, e desmarque spec p não gerar arquivos .spec e execute (RUN).
  - exemplo de arquivo criado. libs/financeiro/controllers/src/lib/nome-entidade/nome-entidade.service.ts
 
-- 2. (Controller) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas.
+- 2 (Controller) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas.
  - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @nestjs/schematics:controller
  - Preencha os campos de acordo área do projeto. [name](*The name of the controller): ex. nome-entidade, [module](Allows specification of the declaring module): ex. financeiro, [path](The path to create the controller): ex. src/lib, [sourceRoot](Nest controller source root directory): ex. libs/financeiro/controllers, e desmarque spec p não gerar arquivos .spec e execute (RUN).
  - exemplo de arquivo criado. libs/financeiro/controllers/src/lib/nome-entidade/nome-entidade.controller.ts.
@@ -259,25 +259,31 @@ entities:[], como mostra o exemplo anterior.
  # ESTRUTURANDO ARRAY DE ENTIDADES NO TYPEORMMODULE FORROOT (APPS)
 
  - NOTA: Em vez de importar todas as entidades para parte de entities:[] do TypeOrmModule.forRoot. da aplicação (apps/api/src/app/app.module.ts), deixando muito grande de acordo com aplicação cresce, podemos enxugar o app.module.ts. Siga os passos a seguir.
-  - 1. Crie um arquivo entities.ts na raiz ex. libs/acessos/entities/src, e importe as entidades conforme abaixo:
-   - import { Users } from './lib/Users.entity';
-   - import { Roles } from './lib/Roles.entity';
-   - import { UserRoles } from './lib/UserRoles.entity';
-
-   - export const ACESSOS_ENTITIES = [
-    - Users,
-    - Roles,
-    - UserRoles
-   - ]
-
-  - 2. Com arquivo criado, abra o arquivo libs/acessos/entities/src/index.ts e exporte o arquivo anterior, colocando em primeiro da lista:
+  - 1 Crie um arquivo entities.ts na raiz ex. libs/acessos/entities/src, e importe as entidades conforme abaixo:
+    import { Users } from './lib/Users.entity';
    
-   - export * from './entities';
-   - export * from './lib/acessos-entities';
-   - export * from './lib/Users.entity';
-   - export * from './lib/Roles.entity';
-   - export * from './lib/UserRoles.entity';
+    import { Roles } from './lib/Roles.entity';
+   
+    import { UserRoles } from './lib/UserRoles.entity';
 
-  - 3. Abra o arquivo apps/api/src/app/app.module.ts, e importe import { ACESSOS_ENTITIES } from '@sistemas/acessos-entities'; e implemente a tag entities:[ ...ACESSOS_ENTITIES ], na configuração do forRoot. 
+    export const ACESSOS_ENTITIES = [
+      Users,
+      Roles,
+      UserRoles
+    ]
+
+  - 2 Com arquivo criado, abra o arquivo libs/acessos/entities/src/index.ts e exporte o arquivo anterior, colocando em primeiro da lista:
+      
+    export * from './entities';
+   
+    export * from './lib/acessos-entities';
+   
+    export * from './lib/Users.entity';
+   
+    export * from './lib/Roles.entity';
+   
+    export * from './lib/UserRoles.entity';
+
+  - 3 Abra o arquivo apps/api/src/app/app.module.ts, e importe import { ACESSOS_ENTITIES } from '@sistemas/acessos-entities'; e implemente a tag entities:[ ...ACESSOS_ENTITIES ], na configuração do forRoot. 
    -NOTA: ...ACESSOS_ENTITIES indica que se trata de um array de entidades;
 
