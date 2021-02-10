@@ -287,3 +287,24 @@ entities:[], como mostra o exemplo anterior.
   - 3 Abra o arquivo apps/api/src/app/app.module.ts, e importe import { ACESSOS_ENTITIES } from '@sistemas/acessos-entities'; e implemente a tag entities:[ ...ACESSOS_ENTITIES ], na configuração do forRoot. 
    -NOTA: ...ACESSOS_ENTITIES indica que se trata de um array de entidades;
 
+
+# VALIDAÇÕES DINAMICAS EM (Reactive Form, Template Driven Form e Model Based Form) 
+
+instale e use todos os modelos de validações conforme mostra o site.(https://www.npmjs.com/package/@rxweb/reactive-form-validators)
+
+npm install @rxweb/reactive-form-validators
+
+ - NOTA: Em nossos exemplos, usamos o validador @prop(),@required({ message: '"Tipo Documento" é obrigatório.' }), na parte do modelo na interface. ex. libs\acessos\interfaces\src\lib\Users.interface.ts. 
+ - Na parte da criação dos formularios, importamos para os modulos nas libs por parte do frontend.
+ 
+ import { FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- #1 import module
+ 
+ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'; // <-- #2 import module
+
+ imports:[ BrowserModule, 
+    FormsModule,
+    ReactiveFormsModule, 
+    RxReactiveFormsModule
+    ] 
+
+
