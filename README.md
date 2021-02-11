@@ -244,6 +244,16 @@ entities:[], como mostra o exemplo anterior.
  - UPDATE .vscode/extensions.json
  - UPDATE jest.config.js
 
+ - NOTA: Apos criado o module, ele deve ser importado para app.module.ts na aplicacao da api. ex.  apps\api\src\app\app.module.ts
+
+ import { AcessosControllersModule } from '@sistemas/acessos-controllers';
+
+ @Module({
+  imports: [
+    TypeOrmModule.forRoot({....}),
+    AcessosControllersModule
+  ]
+
 # CRIANDO SERVIÇOS E CONTROLLER DA ENTIDADE DENTRO (MODULO DO CONTROLLERS ANTERIORMENTE)
 
 - 1 (Service) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas.
@@ -256,7 +266,7 @@ entities:[], como mostra o exemplo anterior.
  - Preencha os campos de acordo área do projeto. [name](*The name of the controller): ex. nome-entidade, [module](Allows specification of the declaring module): ex. financeiro, [path](The path to create the controller): ex. src/lib, [sourceRoot](Nest controller source root directory): ex. libs/financeiro/controllers, e desmarque spec p não gerar arquivos .spec e execute (RUN).
  - exemplo de arquivo criado. libs/financeiro/controllers/src/lib/nome-entidade/nome-entidade.controller.ts.
 
- # ESTRUTURANDO ARRAY DE ENTIDADES NO TYPEORMMODULE FORROOT (APPS)
+ # ESTRUTURANDO ARRAY DE ENTIDADES NO TYPEORMMODULE forROOT (APPS)
 
  - NOTA: Em vez de importar todas as entidades para parte de entities:[] do TypeOrmModule.forRoot. da aplicação (apps/api/src/app/app.module.ts), deixando muito grande de acordo com aplicação cresce, podemos enxugar o app.module.ts. Siga os passos a seguir.
   - 1 Crie um arquivo entities.ts na raiz ex. libs/acessos/entities/src, e importe as entidades conforme abaixo:
@@ -307,4 +317,33 @@ npm install @rxweb/reactive-form-validators
     RxReactiveFormsModule
     ] 
 
+# CRIANDO A LIBRARY SERVICE E O SERVIÇO DAS ENTIDADES (FRONT-END)  
 
+- 1 (ESTRUTURA LIBRARY SERVICE) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
+ - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @nrwl/node:library
+ - Preencha os campos de acordo área do projeto. [Library name](nome da library): ex. services, [directory](diretorio raiz dentro de libs): ex acessos, [importPath](@myorg/my-awesome-lib: Nome usado pela library p/ importar nos projetos): ex. @sistemas/acessos-services.
+
+ng generate @nrwl/node:library --name=services --directory=acessos --importPath=@sistemas/acessos-services --no-interactive --dry-run <
+
+  - CREATE libs/acessos/services/README.md
+  - CREATE libs/acessos/services/src/index.ts
+  - CREATE libs/acessos/services/src/lib/acessos-services.spec.ts
+  - CREATE libs/acessos/services/src/lib/acessos-services.ts
+  - CREATE libs/acessos/services/tsconfig.json
+  - CREATE libs/acessos/services/tsconfig.lib.json
+  - CREATE libs/acessos/services/.eslintrc.json
+  - CREATE libs/acessos/services/jest.config.js
+  - CREATE libs/acessos/services/tsconfig.spec.json
+  - UPDATE tsconfig.base.json
+  - UPDATE angular.json
+  - UPDATE nx.json
+  - UPDATE package.json
+  - UPDATE .vscode/extensions.json
+  - UPDATE jest.config.js
+
+
+- 2 (SERVICE ENTIDADE) Use o gerador Nx Console do narval que se encontra na barra lateral esquerda para configurações básicas de criação de library.
+ - Clique na opção Generate em (GENERATE & RUN TARGET) escolha @schematics/angular:service
+ - Preencha os campos de acordo área do projeto. [name](The name of the service.): ex. users, [project](the name of the project): ex services, [Path]: libs/acessos/services/src/lib, e marque skipTests para não gerar arquivo spec.ts
+  
+  - CREATE libs/acessos/services/src/lib/users.service.ts
