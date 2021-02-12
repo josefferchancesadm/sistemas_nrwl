@@ -1,5 +1,5 @@
 import { Column, Entity, Index, OneToMany } from "typeorm";
-import { UserRoles } from "./UserRoles";
+import { UserRoles } from "./UserRoles.entity";
 
 @Index("PK__roles__3213E83F168D1C3E", ["id"], { unique: true })
 @Entity("roles", { schema: "dbo" })

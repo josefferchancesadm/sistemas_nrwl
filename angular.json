@@ -179,7 +179,8 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "api:build",
+            "port": 7000
           }
         },
         "lint": {
@@ -207,6 +208,241 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+          }
+        }
+      }
+    },
+    "acessos-entities": {
+      "root": "libs/acessos/entities",
+      "sourceRoot": "libs/acessos/entities/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/acessos/entities/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/acessos/entities"],
+          "options": {
+            "jestConfig": "libs/acessos/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "acessos-interfaces": {
+      "root": "libs/acessos/interfaces",
+      "sourceRoot": "libs/acessos/interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/acessos/interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/acessos/interfaces"],
+          "options": {
+            "jestConfig": "libs/acessos/interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "acessos-controllers": {
+      "root": "libs/acessos/controllers",
+      "sourceRoot": "libs/acessos/controllers/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/acessos/controllers/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/acessos/controllers"],
+          "options": {
+            "jestConfig": "libs/acessos/controllers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "clientes-entities": {
+      "root": "libs/clientes/entities",
+      "sourceRoot": "libs/clientes/entities/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/clientes/entities/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/clientes/entities"],
+          "options": {
+            "jestConfig": "libs/clientes/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "clientes-interfaces": {
+      "root": "libs/clientes/interfaces",
+      "sourceRoot": "libs/clientes/interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/clientes/interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/clientes/interfaces"],
+          "options": {
+            "jestConfig": "libs/clientes/interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "clientes-controllers": {
+      "root": "libs/clientes/controllers",
+      "sourceRoot": "libs/clientes/controllers/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/clientes/controllers/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/clientes/controllers"],
+          "options": {
+            "jestConfig": "libs/clientes/controllers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "enderecos-entities": {
+      "root": "libs/enderecos/entities",
+      "sourceRoot": "libs/enderecos/entities/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/enderecos/entities/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/enderecos/entities"],
+          "options": {
+            "jestConfig": "libs/enderecos/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "enderecos-interfaces": {
+      "root": "libs/enderecos/interfaces",
+      "sourceRoot": "libs/enderecos/interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/enderecos/interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/enderecos/interfaces"],
+          "options": {
+            "jestConfig": "libs/enderecos/interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "enderecos-controllers": {
+      "root": "libs/enderecos/controllers",
+      "sourceRoot": "libs/enderecos/controllers/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/enderecos/controllers/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/enderecos/controllers"],
+          "options": {
+            "jestConfig": "libs/enderecos/controllers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "acessos-services": {
+      "root": "libs/acessos/services",
+      "sourceRoot": "libs/acessos/services/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/acessos/services/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/acessos/services"],
+          "options": {
+            "jestConfig": "libs/acessos/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "acessos-front": {
+      "projectType": "library",
+      "root": "libs/acessos/front",
+      "sourceRoot": "libs/acessos/front/src",
+      "prefix": "sistemas",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/acessos/front/src/**/*.ts",
+              "libs/acessos/front/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/acessos/front"],
+          "options": {
+            "jestConfig": "libs/acessos/front/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

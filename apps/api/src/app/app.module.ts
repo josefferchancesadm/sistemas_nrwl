@@ -5,19 +5,41 @@ import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+//import { Users, Roles, UserRoles } from '@sistemas/acessos-entities'
+import { ACESSOS_ENTITIES } from '@sistemas/acessos-entities';
+import { AcessosControllersModule } from '@sistemas/acessos-controllers';
+
+import { Clients } from '@sistemas/clientes-entities'
+import { ClientesControllersModule } from '@sistemas/clientes-controllers';
+
+import { Adresses } from '@sistemas/enderecos-entities';
+import { EnderecosControllersModule } from '@sistemas/enderecos-controllers';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: '192.168.15.200',
+      host: 'sisprogserver',
       port: 1433,
       username: 'sa',
       password: 'sisprog',
       database: 'db_teste',
-      entities: [],
-      synchronize: true,
-    })
+      "options": {
+          "encrypt": true,
+          "enableArithAbort": true
+      },
+      entities: [
+                 //Users,
+                 //Roles,
+                 //UserRoles,
+                 ...ACESSOS_ENTITIES,
+                 Clients,
+                 Adresses],
+      //synchronize: true,
+    }),
+    AcessosControllersModule,
+    ClientesControllersModule,
+    EnderecosControllersModule
   ],
   controllers: [AppController],
   providers: [AppService],

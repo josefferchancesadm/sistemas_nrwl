@@ -1,15 +1,18 @@
+
 import {
   Column,
   Entity,
   Index,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { UserRoles } from "./UserRoles";
+
+import { LocalDateTime } from '@js-joda/core';
+
+import type { IUsers } from '@sistemas/acessos-interfaces';
 
 @Index("PK__users__3213E83FE459DA36", ["id"], { unique: true })
 @Entity("users", { schema: "dbo" })
-export class Users {
+export class Users implements IUsers {
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
   id: number;
 
@@ -23,11 +26,9 @@ export class Users {
   password: string | null;
 
   @Column("datetimeoffset", { name: "createdAt" })
-  createdAt: Date;
+  createdAt: LocalDateTime;
 
   @Column("datetimeoffset", { name: "updatedAt" })
-  updatedAt: Date;
+  updatedAt: LocalDateTime;
 
-  @OneToMany(() => UserRoles, (userRoles) => userRoles.user)
-  userRoles: UserRoles[];
 }

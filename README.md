@@ -347,3 +347,20 @@ ng generate @nrwl/node:library --name=services --directory=acessos --importPath=
  - Preencha os campos de acordo área do projeto. [name](The name of the service.): ex. users, [project](the name of the project): ex services, [Path]: libs/acessos/services/src/lib, e marque skipTests para não gerar arquivo spec.ts
   
   - CREATE libs/acessos/services/src/lib/users.service.ts
+
+
+Nrwl/angular:library
+schematics/angular:modulo
+schematics/angular:component
+
+ng generate @schematics/angular:component --name=acessos-front 
+--project=acessos --module=acessos-front --style=scss 
+--displayBlock --export --flat --path=libs/acessos/front/src/lib --skipTests <
+
+ng generate @schematics/angular:module --name=users --project=acessos 
+--module=@sistemas/acessos-front --path=libs/acessos/front/src/lib --route=users <
+
+ng generate @schematics/angular:component --name=users-query 
+--project=acessos --module=users --style=scss 
+--displayBlock --export --path=libs/acessos/front/src/lib/users 
+--selector=users-edit --skipTests --no-interactive --dry-run

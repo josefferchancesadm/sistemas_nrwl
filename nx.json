@@ -19,6 +19,17 @@
     "odonto-cli": { "tags": [] },
     "odonto-cli-e2e": { "tags": [], "implicitDependencies": ["odonto-cli"] },
     "api": { "tags": [] },
-    "api-interfaces": { "tags": [] }
+    "api-interfaces": { "tags": [] },
+    "acessos-entities": { "tags": [] },
+    "acessos-interfaces": { "tags": [] },
+    "acessos-controllers": { "tags": [] },
+    "clientes-entities": { "tags": [] },
+    "clientes-interfaces": { "tags": [] },
+    "clientes-controllers": { "tags": [] },
+    "enderecos-entities": { "tags": [] },
+    "enderecos-interfaces": { "tags": [] },
+    "enderecos-controllers": { "tags": [] },
+    "acessos-services": { "tags": [] },
+    "acessos-front": { "tags": [] }
   }
 }

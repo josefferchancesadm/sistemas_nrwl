@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Adresses } from "./Adresses";
+import { Adresses } from "./Adresses.entity";
 
 @Index("PK__clients__3213E83FE614000C", ["id"], { unique: true })
 @Entity("clients", { schema: "dbo" })

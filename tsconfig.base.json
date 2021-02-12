@@ -15,7 +15,33 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sistemas/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@sistemas/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@sistemas/acessos-entities": ["libs/acessos/entities/src/index.ts"],
+      "@sistemas/acessos-interfaces": ["libs/acessos/interfaces/src/index.ts"],
+      "@sistemas/acessos-controllers": [
+        "libs/acessos/controllers/src/index.ts"
+      ],
+      "@sistemas/clients": ["libs/clients/entities/src/index.ts"],
+      "@sistemas/clientes": ["libs/clientes/clientes-entities/src/index.ts"],
+      "@sistemas/clients-entities": [
+        "libs/odonto-clients/clients-entities/src/index.ts"
+      ],
+      "@sistemas/clientes-entities": ["libs/clientes/entities/src/index.ts"],
+      "@sistemas/clientes-interfaces": [
+        "libs/clientes/interfaces/src/index.ts"
+      ],
+      "@sistemas/clientes-controllers": [
+        "libs/clientes/controllers/src/index.ts"
+      ],
+      "@sistemas/enderecos-entities": ["libs/enderecos/entities/src/index.ts"],
+      "@sistemas/enderecos-interfaces": [
+        "libs/enderecos/interfaces/src/index.ts"
+      ],
+      "@sistemas/enderecos-controllers": [
+        "libs/enderecos/controllers/src/index.ts"
+      ],
+      "@sistemas/acessos-services": ["libs/acessos/services/src/index.ts"],
+      "@sistemas/acessos-front": ["libs/acessos/front/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
